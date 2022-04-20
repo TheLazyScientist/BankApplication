@@ -8,8 +8,7 @@ namespace Bankkonto
     [Serializable]
     class Account
     {
-        
-        public string password;
+                public string password;
         public string username;
         public float balance;
         public List <string> history;
