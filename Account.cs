@@ -1,17 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json.Encryption;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Bankkonto
 {
     [Serializable]
-    class Account
+    internal class Account
     {
-                public string password;
+        [Encrypt] public string password;
         public string username;
         public float balance;
-        public List <string> history;
+        public List<string> history;
+        public Budget budget;
+        public Budget budgetGuide;
 
         public Account(string _password, string _username)
         {
@@ -19,29 +21,39 @@ namespace Bankkonto
             username = _username;
             balance = 0;
             history = new List<string>();
+            budget = new Budget();
+            budgetGuide = new Budget();
         }
 
-        static public void totalBalance(float _balance, List<string> _history)
+        public static void totalBalance(float _balance, List<string> _history)
         {
             int choice = 0;
 
+            if (_history.Count >= 20)
+            {
+                _history.RemoveAt(1);
+            }
             _history.Add(DateTime.Now + ": Your total balance is " + _balance + "KR");
-            Window.Write(_history.ToArray().Concat(Messages.questionMessage).ToArray().Length+2,  _history.ToArray().Concat(Messages.questionMessage).ToArray());
+            Window.Write(_history.ToArray().Concat(Messages.questionMessage).ToArray().Length + 2, _history.ToArray().Concat(Messages.questionMessage).ToArray());
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
             }
             catch (System.FormatException)
             {
-                
             }
 
-            switch(choice)
+            switch (choice)
             {
                 case 1:
                     Program.isLoggedIn = false;
                     break;
+
                 case 2:
+                    break;
+
+                case 3:
+                    YourBudget.ekonomi();
                     break;
             }
         }

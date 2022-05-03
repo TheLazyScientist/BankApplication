@@ -1,37 +1,35 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
+using System.Media;
+using System.Threading;
 
 namespace Bankkonto
 {
-    class Program
+    internal static class Program
     {
         public static Account loggedInAccount;
         public static bool isLoggedIn;
-        static void Main(string[] args)
+
+        private static void Main(string[] args)
         {
+            Thread music = new Thread(musicPlayer);
+            music.Start();
             bool isRunning = true;
             int accountPosition = 0;
             bool accountFound = false;
-            
+
             string fileName = Path.GetFullPath("SavedAccounts.json");
-            
-            /*
-            var binFormatter = new BinaryFormatter();
-            var oldmStream = new MemoryStream(File.ReadAllBytes(fileName));
-            var mStream = new MemoryStream();
-            */
-            BankingDetails.accountList = JsonConvert.DeserializeObject<List<Account>>(File.ReadAllText(fileName));
-            //BankingDetails.accountList = (List<Account>)binFormatter.Deserialize(oldmStream);
-            
 
-            while (isRunning==true)
+            if (File.Exists(fileName))
             {
+                BankingDetails.accountList = JsonConvert.DeserializeObject<List<Account>>(File.ReadAllText(fileName));
+            }
 
+            while (isRunning)
+            {
+                //Console.Clear();
                 int choice = 0;
 
                 Window.Write(Messages.startMessage.Length + 2, Messages.startMessage);
@@ -41,14 +39,12 @@ namespace Bankkonto
                 }
                 catch (System.FormatException)
                 {
-
                 }
-
 
                 switch (choice)
                 {
                     case 1:
-                        if(isLoggedIn == true)
+                        if (isLoggedIn)
                         {
                             Account.totalBalance(loggedInAccount.balance, loggedInAccount.history);
                         }
@@ -59,39 +55,43 @@ namespace Bankkonto
                             {
                                 Account.totalBalance(BankingDetails.accountList[accountPosition].balance, BankingDetails.accountList[accountPosition].history);
                             }
-                        }                      
+                        }
                         break;
+
                     case 2:
-                        
-                        if(isLoggedIn == true)
+
+                        if (isLoggedIn)
                         {
                             EditAccount.AccountEdit(loggedInAccount);
                         }
                         else
                         {
                             CheckAccount.ChecksAccount(ref accountPosition, ref accountFound);
-                            if (accountFound == true)
+                            if (accountFound)
                             {
                                 EditAccount.AccountEdit(BankingDetails.accountList[accountPosition]);
-                            }                 
+                            }
                         }
                         break;
+
                     case 3:
                         NewAccount.CreateAccount();
                         break;
+
                     case 4:
                         Window.Write(Messages.exitMessage.Length + 2, Messages.exitMessage);
-                        //binFormatter.Serialize(mStream, BankingDetails.accountList);
                         string jon = JsonConvert.SerializeObject(BankingDetails.accountList);
                         File.WriteAllText(fileName, jon);
-                        //File.WriteAllBytes(fileName, mStream.ToArray());
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                         break;
                 }
-                
-
             }
-            
+
+            static void musicPlayer()
+            {
+                SoundPlayer sound = new SoundPlayer("Elevator.wav");
+                sound.PlayLooping();
+            }
         }
     }
 }

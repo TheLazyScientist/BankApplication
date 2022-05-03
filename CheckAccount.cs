@@ -1,24 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Bankkonto
 {
-    class CheckAccount
+    internal static class CheckAccount
     {
-        static string accountName;
-        static string password;
+        private static string accountName;
+        private static string password;
+
         public static void ChecksAccount(ref int accountPosition, ref bool accountFound)
         {
             Window.Write(Messages.enterAccountName.Length + 2, Messages.enterAccountName);
             accountName = Console.ReadLine();
-            for(int i=0; i<BankingDetails.accountList.Count; i++)
+            for (int i = 0; i < BankingDetails.accountList.Count; i++)
             {
-                if(accountName == BankingDetails.accountList[i].username)
+                if (accountName == BankingDetails.accountList[i].username)
                 {
                     Window.Write(Messages.enterPassword.Length + 2, Messages.enterPassword);
                     password = Console.ReadLine();
-                    if(password == BankingDetails.accountList[i].password)
+                    if (password == BankingDetails.accountList[i].password)
                     {
                         accountFound = true;
                         accountPosition = i;
@@ -28,6 +27,7 @@ namespace Bankkonto
                     }
                     else
                     {
+                        Window.Write(Messages.noAccountMessage.Length + 2, Messages.noAccountMessage);
                         accountFound = false;
                         break;
                     }
@@ -36,6 +36,10 @@ namespace Bankkonto
                 {
                     accountFound = false;
                 }
+            }
+            if (accountFound == false)
+            {
+                Window.Write(Messages.noAccountMessage.Length + 2, Messages.noAccountMessage);
             }
         }
     }

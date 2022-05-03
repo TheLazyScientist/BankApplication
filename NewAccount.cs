@@ -1,27 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Bankkonto
 {
-    class NewAccount
+    internal static class NewAccount
     {
-        static string accountName;
-        static string password;
+        private static string accountName;
+        private static string password;
+
         public static void CreateAccount()
         {
             bool isNewAccount = true;
             Window.Write(Messages.createAccountMessage1.Length + 2, Messages.createAccountMessage1);
             accountName = Console.ReadLine();
-            for(int i = 0; BankingDetails.accountList.Count > i; i++)
+            for (int i = 0; BankingDetails.accountList.Count > i; i++)
             {
-                if(accountName == BankingDetails.accountList[i].username)
+                if (accountName == BankingDetails.accountList[i].username)
                 {
                     isNewAccount = false;
-                    Window.Write(Messages.duplicateAccountMessage.Length+ 2, Messages.duplicateAccountMessage);
+                    Window.Write(Messages.duplicateAccountMessage.Length + 2, Messages.duplicateAccountMessage);
                 }
             }
-            if(isNewAccount == true)
+            if (isNewAccount == true)
             {
                 Window.Write(Messages.createAccountMessage2.Length + 2, Messages.createAccountMessage2);
                 password = Console.ReadLine();
