@@ -33,8 +33,10 @@ namespace Bankkonto
             {
                 _history.RemoveAt(1);
             }
+
             _history.Add(DateTime.Now + ": Your total balance is " + _balance + "KR");
             Window.Write(_history.ToArray().Concat(Messages.questionMessage).ToArray().Length + 2, _history.ToArray().Concat(Messages.questionMessage).ToArray());
+
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());

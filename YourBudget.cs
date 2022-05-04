@@ -10,7 +10,7 @@ namespace Bankkonto
             bool isMakingBudgets = true;
             while (isMakingBudgets)
             {
-                Window.Write(Messages.hushållningMessage.Length + 2, Messages.hushållningMessage);
+                Window.Write(Messages.budgettingMessage.Length + 2, Messages.budgettingMessage);
 
                 int choice = 0;
 
@@ -26,7 +26,7 @@ namespace Bankkonto
                 {
                     case 1:
                         float amount = 0;
-                        Window.Write(Messages.hushållaMessage1.Length + 2, Messages.hushållaMessage1);
+                        Window.Write(Messages.budgetMessage1.Length + 2, Messages.budgetMessage1);
                         try
                         {
                             amount = Convert.ToSingle(Console.ReadLine());
@@ -40,7 +40,7 @@ namespace Bankkonto
                         Program.loggedInAccount.budgetGuide.expenses = new storeBothStringAndFloat();
                         while (moreExpenses)
                         {
-                            Window.Write(Messages.hushållaMessage2.Length + 2, Messages.hushållaMessage2);
+                            Window.Write(Messages.budgetMessage2.Length + 2, Messages.budgetMessage2);
                             try
                             {
                                 string name;
@@ -103,7 +103,7 @@ namespace Bankkonto
 
             text.Add("Total Budget: " + Program.loggedInAccount.budget.totalAmountOfMoney + " KR");
             Window.Write(text.Count + 2, text.ToArray());
-
+            Window.Write(Messages.editBudget.Length + 2, Messages.editBudget);
             int choice = -1;
 
             try
