@@ -1,0 +1,124 @@
+[
+  {
+    "password": "Hello",
+    "username": "Hello",
+    "BudgetAccounts": [
+      {
+        "budgetGuide": {
+          "totalAmountOfMoney": 25000.0,
+          "expenses": {
+            "expenseName": [ "Food", "Entertainment" ],
+            "expenseCost": [ 5000.0, 15000.0 ]
+          }
+        },
+        "budget": {
+          "totalAmountOfMoney": 25000.0,
+          "expenses": {
+            "expenseName": [ "Food", "Entertainment" ],
+            "expenseCost": [ 5000.0, 15000.0 ]
+          }
+        },
+        "budgetHistory": [],
+        "accountName": "AmoogusCoin",
+        "balance": -20.0,
+        "history": [ "2022-05-11 10:21:30: Your total balance is 0KR", "2022-05-11 10:21:36: Your total balance is 0KR", "2022-05-16 12:47:51: Withdrew 20KR from account" ]
+      },
+      {
+        "budgetGuide": {
+          "totalAmountOfMoney": 0.0,
+          "expenses": {
+            "expenseName": [],
+            "expenseCost": []
+          }
+        },
+        "budget": {
+          "totalAmountOfMoney": 0.0,
+          "expenses": {
+            "expenseName": [],
+            "expenseCost": []
+          }
+        },
+        "budgetHistory": [],
+        "accountName": "DogeCoin",
+        "balance": 1000.0,
+        "history": [ "2022-05-11 10:23:58: Deposited 1000KR to account" ]
+      }
+    ],
+    "PresentAccounts": [
+      {
+        "monthlyIncome": 0.0,
+        "time": 24269.0,
+        "accountName": "Cdon",
+        "balance": 0.0,
+        "history": [ "2022-05-11 11:06:32: Your total balance is 0KR" ]
+      }
+    ],
+    "SavingAccounts": []
+  },
+  {
+    "password": "Hellberg",
+    "username": "Algot",
+    "BudgetAccounts": [],
+    "PresentAccounts": [
+      {
+        "monthlyIncome": 0.0,
+        "time": 24269.0,
+        "accountName": "SteamCard",
+        "balance": 0.0,
+        "history": [ "2022-05-11 13:33:58: Your total balance is 0KR" ]
+      }
+    ],
+    "SavingAccounts": [
+      {
+        "procentGain": 0.0,
+        "time": 24269.0,
+        "accountName": "Food",
+        "balance": 0.0,
+        "history": [ "2022-05-11 13:37:29: Your total balance is 0KR" ]
+      }
+    ]
+  },
+  {
+    "password": "qwerty",
+    "username": "qwerty",
+    "BudgetAccounts": [],
+    "PresentAccounts": [],
+    "SavingAccounts": []
+  },
+  {
+    "password": "1",
+    "username": "1",
+    "BudgetAccounts": [
+      {
+        "budgetGuide": {
+          "totalAmountOfMoney": 0.0,
+          "expenses": {
+            "expenseName": [],
+            "expenseCost": []
+          }
+        },
+        "budget": {
+          "totalAmountOfMoney": 0.0,
+          "expenses": {
+            "expenseName": [],
+            "expenseCost": []
+          }
+        },
+        "budgetHistory": [],
+        "accountName": "AmoogusCoin",
+        "balance": 0.0,
+        "history": [ "2022-05-18 13:59:06: The Account was created" ]
+      }
+    ],
+    "PresentAccounts": [],
+    "SavingAccounts": [
+      {
+        "procentGain": 10.0,
+        "time": 24269.0,
+        "accountName": "1",
+        "balance": 0.0,
+        "history": [ "2022-05-18 13:59:29: The Account was created" ]
+      }
+    ]
+  }
+]

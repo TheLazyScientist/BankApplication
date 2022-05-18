@@ -4,6 +4,7 @@ namespace Bankkonto
 {
     internal static class Window
     {
+        //Writes all text into a neet little window using two for loops for the x and y axis.
         public static void Write(int length, string[] message)
         {
             for (int i = 1; i <= length; i++)
