@@ -29,12 +29,12 @@ namespace Bankkonto
                 stock.Add("Stock Price Now: " + (string)data.SelectToken($"quoteSummary.result[{0}].summaryDetail.open.raw") + " USD");
                 stock.Add("Lowest Stock Price Today: " + (string)data.SelectToken($"quoteSummary.result[{0}].summaryDetail.dayLow.raw") + " USD");
                 stock.Add("Highest Stock Price Today: " + (string)data.SelectToken($"quoteSummary.result[{0}].summaryDetail.dayHigh.raw") + " USD");
+                Window.Write(stock.Count + 2, stock.ToArray());
             }
             else
             {
+                Window.Write(Messages.CompanyErrorMessage.Length + 2, Messages.CompanyErrorMessage);
             }
-
-            Window.Write(stock.Count + 2, stock.ToArray());
         }
     }
 }

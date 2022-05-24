@@ -52,6 +52,7 @@ namespace Bankkonto
                     break;
 
                 case 2:
+                    Window.Write(Messages.specialValueMessage.Length + 2, Messages.specialValueMessage);
                     try
                     {
                         value = Convert.ToInt32(Console.ReadLine());
@@ -63,6 +64,7 @@ namespace Bankkonto
                     break;
 
                 case 3:
+                    Window.Write(Messages.specialValueMessage.Length + 2, Messages.specialValueMessage);
                     try
                     {
                         value = Convert.ToInt32(Console.ReadLine());

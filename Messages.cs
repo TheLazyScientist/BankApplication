@@ -11,11 +11,12 @@
         public static string[] typeOfAccountMessageCreate = { "Create Account", "1: BudgetAccount", "2: SavingsAccount", "3: PresentAccount" };
         public static string[] typeOfAccountMessageEnter = { "Enter Account", "1: BudgetAccount", "2: SavingsAccount", "3: PresentAccount" };
         public static string[] budgetMessage2 = { "Write in the name of the expense and hit enter", "Then write the amount you're willing to spend", "Write Exit at any time to exit" };
-        public static string[] editBudget = { "Choose expense through by enter it's representative number", "Then enter the amount you have spent" };
+        public static string[] editBudget = { "Choose expense by entering it's representative number", "Then enter the amount you have spent" };
         public static string[] createHostAccountMessage1 = { "Create HostAccount", "Enter AccountName" };
         public static string[] createHostAccountMessage2 = { "Create HostAccount", "Enter password" };
         public static string[] createAccountMessage = { "Create Account", "Enter AccountName" };
         public static string[] CompanyNameMessage = { "Enter CompanyName" };
+        public static string[] CompanyErrorMessage = { "This company does not have any visible stocks" };
         public static string[] enterAccountName = { "Enter Your AccountName" };
         public static string[] enterPassword = { "Enter Your password" };
         public static string[] exitMessage = { "Thank you for using C#Bank" };

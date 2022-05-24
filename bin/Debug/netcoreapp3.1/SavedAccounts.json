@@ -21,11 +21,19 @@
           }
         },
         "accountName": "AmoogusCoin",
-        "balance": 0.0,
-        "history": [ "2022-05-18 20:40:41: The Account was created", "2022-05-18 20:40:55: Your total balance is 0KR", "2022-05-18 20:45:14: Your total balance is 0KR" ]
+        "balance": 4000.0,
+        "history": [ "2022-05-18 20:40:41: The Account was created", "2022-05-18 20:40:55: Your total balance is 0KR", "2022-05-18 20:45:14: Your total balance is 0KR", "2022-05-23 10:39:24: Deposited 4000KR to account", "2022-05-23 10:41:06: Your total balance is 4000KR" ]
       }
     ],
-    "PresentAccounts": [],
+    "PresentAccounts": [
+      {
+        "monthlyIncome": 0.0,
+        "time": 24269.0,
+        "accountName": "Cdon.com",
+        "balance": 0.0,
+        "history": [ "2022-05-23 10:40:37: The Account was created", "2022-05-23 10:40:49: Your total balance is 0KR" ]
+      }
+    ],
     "SavingAccounts": []
   },
   {
