@@ -103,7 +103,7 @@ namespace Bankkonto
 
                                 try
                                 {
-                                    if (BankingDetails.accountList[i].PresentAccounts.Count != 0)
+                                    if (BankingDetails.accountList[i].SavingAccounts.Count != 0)
                                     {
                                         choice = Convert.ToInt32(Console.ReadLine());
                                     }

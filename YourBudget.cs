@@ -28,6 +28,8 @@ namespace Bankkonto
                 {
                     case 1:
                         float amount = 0;
+
+                        BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.budgetHistory.Clear();
                         Window.Write(Messages.budgetMessage1.Length + 2, Messages.budgetMessage1);
                         try
                         {
@@ -49,7 +51,7 @@ namespace Bankkonto
                                 name = Console.ReadLine();
                                 if (name.Equals("Exit", StringComparison.CurrentCultureIgnoreCase))
                                 {
-                                    BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.expenses.expenseName.Add("Entertainment");
+                                    BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.expenses.expenseName.Add("Savings");
                                     BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.expenses.expenseCost.Add(moneyLeft);
                                     break;
                                 }
@@ -57,7 +59,7 @@ namespace Bankkonto
                                 amounts = Console.ReadLine();
                                 if (amounts.Equals("Exit", StringComparison.CurrentCultureIgnoreCase))
                                 {
-                                    BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.expenses.expenseName.Add("Entertainment");
+                                    BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.expenses.expenseName.Add("Savings");
                                     BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budgetGuide.expenses.expenseCost.Add(moneyLeft);
                                     break;
                                 }
@@ -106,12 +108,10 @@ namespace Bankkonto
         {
             List<String> text = new List<string>();
             float change = 0;
-
             for (int i = 0; BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budget.expenses.expenseCost.Count > i; i++)
             {
                 text.Add(i + 1 + ": " + BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budget.expenses.expenseName[i] + ": " + BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budget.expenses.expenseCost[i] + " KR");
             }
-
             text.Add("Total Budget: " + BankingDetails.accountList[Program.loggedInAccount.accountOwner].BudgetAccounts[Program.loggedInAccount.accountType].budget.totalAmountOfMoney + " KR");
             Window.Write(text.Count + 2, text.ToArray());
             Window.Write(Messages.editBudget.Length + 2, Messages.editBudget);
@@ -120,6 +120,7 @@ namespace Bankkonto
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
+                //Window.Write()
                 change = Convert.ToSingle(Console.ReadLine());
                 if (change <= 0)
                 {
